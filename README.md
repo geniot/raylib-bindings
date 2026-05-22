@@ -1,7 +1,8 @@
-# Raylib Deno
+# Raylib Deno Bindings
 
 Deno bindings for [raylib](https://github.com/raysan5/raylib). This is currently
-aligned to raylib v5.0.
+aligned to raylib v6.0.
+
 
 ## Usage
 
@@ -12,7 +13,7 @@ import {
   RAYWHITE,
   Text,
   Window,
-} from "https://deno.land/x/raylib";
+} from "jsr:@geniot/raylib-bindings@latest";
 
 Window.init(800, 450, "Raylib - Basic Window");
 
