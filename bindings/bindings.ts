@@ -4316,7 +4316,7 @@ export const lib = Deno.dlopen(
       parameters: ["u32", "u32", "u32"],
       result: { "struct": ["pointer", "pointer", "u32", "u32", "u32"] },
     },
-    IsAudioStreamReady: { parameters: ["buffer"], result: "u8" },
+    IsAudioStreamValid: { parameters: ["buffer"], result: "u8" },
     UnloadAudioStream: { parameters: ["buffer"], result: "void" },
     UpdateAudioStream: {
       parameters: ["buffer", "pointer", "i32"],

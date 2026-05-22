@@ -16,7 +16,7 @@ export class AudioStream {
 
   /** Checks if an audio stream is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsAudioStreamReady(this.#buffer);
+    return !!lib.symbols.IsAudioStreamValid(this.#buffer);
   }
 
   /** Unload audio stream and free memory */

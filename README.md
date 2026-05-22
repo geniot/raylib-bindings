@@ -21,7 +21,7 @@ I'm going to fix errors as I encounter them while using the bindings. One step a
 
 ### .so files in examples/lib 
 - are built from raylib v6.1-dev (yes, I've learned how to build raylib from source). 
-- aarch64 is built for SDL and ES_2.0 for my own Trimui projects (using my own Docker image for cross-compilation: https://github.com/geniot/trimui-smart-pro-toolchain.
+- aarch64 is built for SDL and ES_2.0 for my own Trimui projects (using my own Docker image for cross-compilation: https://github.com/geniot/trimui-smart-pro-toolchain).
 
 Don't use these .so files unless you know what you're doing. 
 
@@ -43,6 +43,16 @@ Fetching shared libraries is not something that I want for my projects. My targe
 
 ## Usage
 
+deno.json:
+```json
+{
+  "imports": {
+    "@geniot/raylib-bindings": "jsr:@geniot/raylib-bindings@^0.1.0"
+  }
+}
+```
+
+main.ts:
 ```typescript
 import {
   Drawing,
@@ -50,7 +60,7 @@ import {
   RAYWHITE,
   Text,
   Window,
-} from "jsr:@geniot/raylib-bindings@latest";
+} from "@geniot/raylib-bindings";
 
 Window.init(800, 450, "Raylib - Basic Window");
 
