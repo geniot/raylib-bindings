@@ -9,11 +9,11 @@ import type { Camera3D } from "./camera3d.ts";
 /** Helper methods for screenspace transformations */
 export class ScreenSpace {
   /** Get a ray trace from mouse position */
-  static getMouseRay(mousePosition: Vector2, camera: Camera3D): Ray {
-    return Ray.fromBuffer(
-      lib.symbols.GetMouseRay(mousePosition.buffer, camera.buffer).buffer,
-    );
-  }
+  // static getMouseRay(mousePosition: Vector2, camera: Camera3D): Ray {
+  //   return Ray.fromBuffer(
+  //     lib.symbols.GetMouseRay(mousePosition.buffer, camera.buffer).buffer,
+  //   );
+  // }
 
   /** Get camera transform matrix (view matrix) */
   static getCameraMatrix(camera: Camera3D): Matrix {

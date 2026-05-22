@@ -47,20 +47,20 @@ export class Wave {
   }
 
   /** Load wave from memory buffer, fileType refers to extension: i.e. '.wav' */
-  static loadFromMemory(fileType: string, fileData: Uint8Array): Wave {
+  static loadFromMemory(fileType: string, fileData: ArrayBuffer): Wave {
     const encoded = new TextEncoder().encode(fileType + "\0");
     return new Wave(
       lib.symbols.LoadWaveFromMemory(
         encoded,
         Deno.UnsafePointer.of(fileData),
-        fileData.length,
+        fileData.byteLength,
       ),
     );
   }
 
   /** Checks if wave data is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsWaveReady(this.#buffer);
+    return !!lib.symbols.IsWaveValid(this.#buffer);
   }
 
   /** Unload wave data */
@@ -150,16 +150,16 @@ export class Sound {
   }
 
   /** Checks if a sound is ready */
-  isReady(): boolean {
-    return !!lib.symbols.IsSoundReady(this.#buffer);
+  isValid(): boolean {
+    return !!lib.symbols.IsSoundValid(this.#buffer);
   }
 
   /** Update sound buffer with new data */
-  update(data: Float32Array) {
+  update(data: ArrayBuffer) {
     lib.symbols.UpdateSound(
       this.#buffer,
       Deno.UnsafePointer.of(data),
-      data.length,
+      data.byteLength,
     );
   }
 

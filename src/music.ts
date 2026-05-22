@@ -35,7 +35,7 @@ export class Music {
 
   /** Checks if a music stream is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsMusicReady(this.#buffer);
+    return !!lib.symbols.IsMusicValid(this.#buffer);
   }
 
   /** Unload music stream */

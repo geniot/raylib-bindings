@@ -39,7 +39,7 @@ export class Model {
 
   /** Check if a model is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsModelReady(this.#buffer);
+    return !!lib.symbols.IsModelValid(this.#buffer);
   }
 
   /** Unload model (including meshes) from memory (RAM and/or VRAM) */

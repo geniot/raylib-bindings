@@ -58,32 +58,14 @@ export class Image {
     );
   }
 
-  /** Load image from SVG file data or string with specified size */
-  static loadSvg(
-    fileNameOrString: string,
-    width: number,
-    height: number,
-  ): Image {
-    const encodedFileNameOrString = new TextEncoder().encode(
-      fileNameOrString + "\0",
-    );
-    return new Image(
-      lib.symbols.LoadImageSvg(
-        encodedFileNameOrString,
-        width,
-        height,
-      ),
-    );
-  }
-
   /** Load image from memory buffer, fileType refers to extension: i.e. '.png' */
-  static loadFromMemory(fileType: string, fileData: Uint8Array): Image {
+  static loadFromMemory(fileType: string, fileData: ArrayBuffer): Image {
     const encodedFileType = new TextEncoder().encode(fileType + "\0");
     return new Image(
       lib.symbols.LoadImageFromMemory(
         encodedFileType,
         Deno.UnsafePointer.of(fileData),
-        fileData.length,
+        fileData.byteLength,
       ),
     );
   }
@@ -99,8 +81,8 @@ export class Image {
   }
 
   /** Check if an image is ready */
-  isReady(): boolean {
-    return !!lib.symbols.IsImageReady(this.#buffer);
+  isValid(): boolean {
+    return !!lib.symbols.IsImageValid(this.#buffer);
   }
 
   /** Unload image from CPU memory (RAM) */

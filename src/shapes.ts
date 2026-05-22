@@ -120,15 +120,13 @@ export class Shapes {
 
   /** Draw a gradient-filled circle */
   static drawCircleGradient(
-    centerX: number,
-    centerY: number,
+    center: Vector2,
     radius: number,
     color1: Color,
     color2: Color,
   ) {
     lib.symbols.DrawCircleGradient(
-      centerX,
-      centerY,
+      center.buffer,
       radius,
       color1.buffer,
       color2.buffer,
@@ -363,7 +361,6 @@ export class Shapes {
       rect.buffer,
       roundness,
       segments,
-      lineThick,
       color.buffer,
     );
   }

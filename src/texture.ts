@@ -95,7 +95,7 @@ export class Texture2D {
 
   /** Check if a texture is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsTextureReady(this.#buffer);
+    return !!lib.symbols.IsTextureValid(this.#buffer);
   }
 
   /** Unload texture from GPU memory (VRAM) */
@@ -258,7 +258,7 @@ export class RenderTexture2D {
 
   /** Check if a render texture is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsRenderTextureReady(this.#buffer);
+    return !!lib.symbols.IsRenderTextureValid(this.#buffer);
   }
 
   /** Unload render texture from GPU memory (VRAM) */

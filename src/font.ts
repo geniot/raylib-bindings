@@ -50,7 +50,7 @@ export class Font {
 
   /** Check if a font is ready */
   isReady(): boolean {
-    return !!lib.symbols.IsFontReady(this.#buffer);
+    return !!lib.symbols.IsFontValid(this.#buffer);
   }
 
   /** Unload Font from GPU memory (VRAM) */

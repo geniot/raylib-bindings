@@ -54,9 +54,9 @@ export class Material {
     return new Material(lib.symbols.LoadMaterialDefault());
   }
 
-  /** Check if a material is ready */
-  isReady(): boolean {
-    return !!lib.symbols.IsMaterialReady(this.#buffer);
+  /** Check if a material is valid */
+  isValid(): boolean {
+    return !!lib.symbols.IsMaterialValid(this.#buffer);
   }
 
   /** Unload material from GPU memory (VRAM) */
