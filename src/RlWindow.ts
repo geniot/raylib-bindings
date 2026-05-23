@@ -8,7 +8,7 @@ import { Vector2 } from "./_util.ts";
 import type { Image } from "./image.ts";
 
 /** System/Window config flags.  By default all flags are set to false. */
-export interface WindowState {
+export interface RlWindowState {
   /** Set to try enabling V-Sync on GPU */
   vsync: boolean;
   /** Set to run program in fullscreen */
@@ -63,18 +63,18 @@ const FLAG_BITMASK = {
 };
 
 /** A class representing a window */
-export class Window {
+export class RlWindow {
   /** Initialize window and OpenGL context */
   static init(
     width: number,
     height: number,
     title: string,
-    flags?: Partial<WindowState>,
+    flags?: Partial<RlWindowState>,
   ) {
     // Initialize window configuration flags
     if (flags) {
       const flag = Object.keys(flags).reduce((acc, key) => {
-        return acc | FLAG_BITMASK[key as keyof WindowState];
+        return acc | FLAG_BITMASK[key as keyof RlWindowState];
       }, 0);
       lib.symbols.SetConfigFlags(flag);
     }
@@ -133,25 +133,25 @@ export class Window {
   }
 
   /** Check if one specific window flag is enabled */
-  static isState(flags: Partial<WindowState>): boolean {
+  static isState(flags: Partial<RlWindowState>): boolean {
     const flag = Object.keys(flags).reduce((acc, key) => {
-      return acc | FLAG_BITMASK[key as keyof WindowState];
+      return acc | FLAG_BITMASK[key as keyof RlWindowState];
     }, 0);
     return !!lib.symbols.IsWindowState(flag);
   }
 
   /** Set window configuration state using flags */
-  static setState(flags: Partial<WindowState>): void {
+  static setState(flags: Partial<RlWindowState>): void {
     const flag = Object.keys(flags).reduce((acc, key) => {
-      return acc | FLAG_BITMASK[key as keyof WindowState];
+      return acc | FLAG_BITMASK[key as keyof RlWindowState];
     }, 0);
     lib.symbols.SetWindowState(flag);
   }
 
   /** Clear window configuration state flags */
-  static clearState(flags: Partial<WindowState>): void {
+  static clearState(flags: Partial<RlWindowState>): void {
     const flag = Object.keys(flags).reduce((acc, key) => {
-      return acc | FLAG_BITMASK[key as keyof WindowState];
+      return acc | FLAG_BITMASK[key as keyof RlWindowState];
     }, 0);
     lib.symbols.ClearWindowState(flag);
   }

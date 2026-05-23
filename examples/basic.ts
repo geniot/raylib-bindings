@@ -1,8 +1,8 @@
-import { Drawing, LIGHTGRAY, RAYWHITE, Text, Window } from "raylib";
+import { Drawing, LIGHTGRAY, RAYWHITE, Text, RlWindow } from "raylib";
 
-Window.init(800, 450, "Raylib - Basic Window");
+RlWindow.init(800, 450, "Raylib - Basic Window");
 
-while (!Window.shouldClose()) {
+while (!RlWindow.shouldClose()) {
   Drawing.beginDrawing();
   Drawing.clearBackground(RAYWHITE);
   Text.drawText(
@@ -12,8 +12,8 @@ while (!Window.shouldClose()) {
     20,
     LIGHTGRAY,
   );
-  console.log(Window.getPosition());
+  console.log(RlWindow.getPosition());
   Drawing.endDrawing();
 }
 
-Window.close();
+RlWindow.close();

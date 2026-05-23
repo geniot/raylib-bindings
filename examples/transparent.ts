@@ -1,22 +1,22 @@
-import { BLACK, BLANK, Drawing, Shapes, Timing, Vector2, Window } from "raylib";
+import { BLACK, BLANK, Drawing, Shapes, Timing, Vector2, RlWindow } from "raylib";
 
 Timing.setTargetFPS(60);
-Window.init(100, 100, "Hey", {
+RlWindow.init(100, 100, "Hey", {
   transparent: true,
   undecorated: true,
   topmost: true,
   mousePassthrough: true,
 });
-Window.setPosition(0, 0);
+RlWindow.setPosition(0, 0);
 
 let height = 50;
 let frame = 0;
 
-while (!Window.shouldClose()) {
+while (!RlWindow.shouldClose()) {
   frame++;
   Drawing.beginDrawing();
   Drawing.clearBackground(BLANK);
-  Window.setSize(100, Math.round(height));
+  RlWindow.setSize(100, Math.round(height));
 
   Shapes.drawLineEx(new Vector2(0, 0), new Vector2(100, height), 10, BLACK);
 
@@ -25,4 +25,4 @@ while (!Window.shouldClose()) {
   Drawing.endDrawing();
 }
 
-Window.close();
+RlWindow.close();

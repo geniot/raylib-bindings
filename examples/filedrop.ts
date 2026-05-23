@@ -1,8 +1,8 @@
-import { Drawing, FileDrop, LIGHTGRAY, RAYWHITE, Text, Window } from "raylib";
+import { Drawing, FileDrop, LIGHTGRAY, RAYWHITE, Text, RlWindow } from "raylib";
 
-Window.init(800, 450, "Raylib - File Drop");
+RlWindow.init(800, 450, "Raylib - File Drop");
 
-while (!Window.shouldClose()) {
+while (!RlWindow.shouldClose()) {
   Drawing.beginDrawing();
   Drawing.clearBackground(RAYWHITE);
   Text.drawText(
@@ -21,4 +21,4 @@ while (!Window.shouldClose()) {
   Drawing.endDrawing();
 }
 
-Window.close();
+RlWindow.close();

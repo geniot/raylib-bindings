@@ -35,4 +35,4 @@ export * from "./src/texture.ts";
 export * from "./src/timing.ts";
 export * from "./src/touch.ts";
 export * from "./src/vr.ts";
-export * from "./src/window.ts";
+export * from "./src/RlWindow.ts";
