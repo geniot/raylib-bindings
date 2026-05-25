@@ -1,19 +1,20 @@
-import { Drawing, LIGHTGRAY, RAYWHITE, Text, Window } from "raylib";
+import * as rl from "raylib";
 
-Window.init(800, 450, "Raylib - Basic Window");
+rl.SetConfigFlags({ vsync: true });
+rl.InitWindow(800, 450, "Raylib - Basic Window");
 
-while (!Window.shouldClose()) {
-  Drawing.beginDrawing();
-  Drawing.clearBackground(RAYWHITE);
-  Text.drawText(
+while (!rl.WindowShouldClose()) {
+  rl.BeginDrawing();
+  rl.ClearBackground(rl.RAYWHITE);
+  rl.DrawText(
     "Congrats! You created your first window!",
     190,
     200,
     20,
-    LIGHTGRAY,
+    rl.BLACK,
   );
-  console.log(Window.getPosition());
-  Drawing.endDrawing();
+  // console.log(Window.getPosition());
+  rl.EndDrawing();
 }
 
-Window.close();
+rl.CloseWindow();
