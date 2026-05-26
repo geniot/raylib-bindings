@@ -101,5 +101,11 @@
     "https://deno.land/x/plug@1.0.3/mod.ts": "5dec80ee7a3a325be45c03439558531bce7707ac118f4376cebbd6740ff24bfb",
     "https://deno.land/x/plug@1.0.3/types.ts": "0490359117c53783138f2b6692a34f85bca9237314ba8cdef8ad682d81218d21",
     "https://deno.land/x/plug@1.0.3/util.ts": "ded3db6e9bb16b8003899d9073fb310e13231ca617b35d6b7dfd53f38762cc76"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@@std-ts/std@1",
+      "jsr:@std/assert@1"
+    ]
   }
 }
