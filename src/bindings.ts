@@ -1,22 +1,9 @@
+import {librarySuffix} from "./util.ts";
+
 export const RAYLIB_VERSION_MAJOR = 6;
 export const RAYLIB_VERSION_MINOR = 0;
 export const RAYLIB_VERSION_PATCH = 0;
 export const RAYLIB_VERSION = "6.0";
-
-// --- bindings ---
-
-function librarySuffix() {
-  switch (Deno.build.os) {
-    case "linux":
-      return "so";
-    case "darwin":
-      return "dylib";
-    case "windows":
-      return "dll";
-    default:
-      return "so";
-  }
-}
 
 export const lib = Deno.dlopen(
   "./lib/libraylib_" + Deno.build.arch + "." + librarySuffix(),

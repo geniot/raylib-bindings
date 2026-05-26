@@ -1,7 +1,12 @@
 import * as rl from "raylib";
+import {cacheDir, denoCacheDir, homeDir} from "../src/util.ts";
 
 rl.SetConfigFlags({ vsync: true });
 rl.InitWindow(800, 450, "Raylib - Basic Window");
+
+console.log(homeDir());
+console.log(cacheDir());
+console.log(denoCacheDir());
 
 while (!rl.WindowShouldClose()) {
   rl.BeginDrawing();
