@@ -1,12 +1,11 @@
-import {librarySuffix} from "./util.ts";
+import {reembed} from "./util.ts";
 
 export const RAYLIB_VERSION_MAJOR = 6;
 export const RAYLIB_VERSION_MINOR = 0;
 export const RAYLIB_VERSION_PATCH = 0;
 export const RAYLIB_VERSION = "6.0";
 
-export const lib = Deno.dlopen(
-  "./lib/libraylib_" + Deno.build.arch + "." + librarySuffix(),
+export const lib = Deno.dlopen(await reembed(),
   {
     InitWindow: { parameters: ["i32", "i32", "buffer"], result: "void" }, // Initialize window and OpenGL context
     CloseWindow: { parameters: [], result: "void" }, // Close window and unload OpenGL context
