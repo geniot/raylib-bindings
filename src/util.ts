@@ -1,6 +1,7 @@
 import { isAbsolute, join, normalize } from "node:path";
 import { RAYLIB } from "./raylib.ts";
 import { ensureDir } from "@std/fs";
+import { exists } from "@std/fs/exists";
 
 //most of it is based on code from https://github.com/littledivy/plug/blob/main/download.ts
 
@@ -13,6 +14,7 @@ export async function reembed(): Promise<string> {
     path + fileName,
     Uint8Array.fromBase64(RAYLIB.get(libName)!),
   );
+  await exists(path + fileName);
   return path + fileName;
 }
 
